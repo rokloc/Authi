@@ -7,7 +7,11 @@
   <dd>[対策]　エラーメッセージは「ログインできません」等として対象のIDがアクティブユーザーIDなのか不明な実装にする。</dd>
   <dt>2. SQLインジェクション攻撃によるパスワード入手</dt>
   <dd>クライアントからクエリを追加したり、コメントアウトできる仕様になっている事が原因</dd>
-  <dd>[対策]　フレームワークを利用する。JavaならSpringBootで@</dd>
+  <dd>[対策]　フレームワークを利用する。JavaならSpringBootのJPAを継承しDB操作をする。
+'''
+@Query("SELECT u FROM User u WHERE u.username = :username")
+User findByUsername(@Param("username") String username);
+'''
   <dt>辞書攻撃によるパスワード入手</dt>
   <dd></dd>
 </dl>
